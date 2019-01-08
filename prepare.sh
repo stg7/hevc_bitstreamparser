@@ -28,4 +28,4 @@ echo "configure ffmpeg"
   --enable-demuxer=hevc \
   --disable-vaapi
 
-make
+make -j 12
