@@ -1,0 +1,1 @@
+config:x86:x86_64:generic:linux:gcc 7 (Ubuntu 7.3.0-27ubuntu1~18.04):--pkg-config-flags=--static --disable-doc --enable-pthreads --enable-debug=2 --disable-nvenc --disable-libx265 --enable-decoder=hevc --enable-parser=hevc --enable-demuxer=hevc --disable-vaapi
