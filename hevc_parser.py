@@ -6,6 +6,7 @@ import subprocess
 import os
 import bz2
 import gzip
+import logging
 
 
 def file_open(filename, mode="r"):

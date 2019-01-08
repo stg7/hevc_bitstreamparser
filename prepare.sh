@@ -27,3 +27,5 @@ echo "configure ffmpeg"
   --enable-parser=hevc \
   --enable-demuxer=hevc \
   --disable-vaapi
+
+make
