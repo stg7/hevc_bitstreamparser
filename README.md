@@ -3,6 +3,8 @@ extracts qp values from hevc bitstreams
 
 this project is based on https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz
 
+Author: Steve Göring
+
 ## requirements
 for ubuntu 18.04 just run `./prepare.sh`, all requirements will be installed
 
@@ -17,7 +19,7 @@ autoconf automake build-essential cmake git \
 and uncomment `requirements` in `prepare.sh` and run `./prepare.sh`
 
 ## Usage
-Assuming that the prepare script successfully compile the patched ffmpeg version
+Assuming that the prepare script successfully compiles the patched ffmpeg version
 it is possible to extract bitstream statistics with
 ```
 ./hevc_parser.py
