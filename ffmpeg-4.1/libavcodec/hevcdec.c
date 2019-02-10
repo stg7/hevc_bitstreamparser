@@ -2241,6 +2241,7 @@ static int hls_coding_unit(HEVCContext *s, int x0, int y0, int log2_cb_size)
 
     set_ct_depth(s, x0, y0, log2_cb_size, lc->ct_depth);
 
+    // Modifcations by stg7
     // lc->ct_depth --> coding tree depth
     // max depth: log2_cb_size
 
@@ -2249,6 +2250,7 @@ static int hls_coding_unit(HEVCContext *s, int x0, int y0, int log2_cb_size)
         printf("qp=%i\n", lc->qp_y);
     }
     //printf("log2_cb_size=%i ct_depth=%i magic=%i \n", log2_cb_size, lc->ct_depth, weight);
+    // end of Mods
     return 0;
 }
 
