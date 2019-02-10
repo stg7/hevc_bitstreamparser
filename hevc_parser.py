@@ -48,7 +48,7 @@ def shell_call(call):
 
 
 def assert_file(filename, error_msg):
-    """ checks if file exists otherwise trow error_msg and raise Exception"""
+    """ checks if file exists otherwise throw error_msg and raise Exception"""
     if not os.path.isfile(filename):
         logging.error(error_msg)
         raise Exception()
