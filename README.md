@@ -2,7 +2,7 @@
 extracts qp values from hevc bitstreams
 
 this project is based on https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz
-modifications to ffmeg are mostly done in hevcdec.c and are marked.
+modifications to ffmpeg are mostly done in hevcdec.c and are marked.
 The ffmpeg-4.1 folder contains separate licences for FFmpeg.
 
 Author: Steve Göring
