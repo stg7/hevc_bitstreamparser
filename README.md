@@ -17,8 +17,7 @@ autoconf automake build-essential cmake git \
 and uncomment `requirements` in `prepare.sh` and run `./prepare.sh`
 
 ## Usage
-Assuming that the prepare script successfully compile the patched ffmpeg version
-it is possible to extract bitstream statistics with
+Assuming that the prepare script successfully compiles the patched ffmpeg version it is possible to extract bitstream statistics with
 ```
 ./hevc_parser.py
 
