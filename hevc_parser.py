@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+    This file is part of hevc_parser.
+    hevc_parser is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    hevc_parser is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with hevc_parser. If not, see <http://www.gnu.org/licenses/>.
+
+    Author: Steve Göring
+"""
 import argparse
 import json
 import sys
@@ -6,6 +21,7 @@ import subprocess
 import os
 import bz2
 import gzip
+import logging
 
 
 def file_open(filename, mode="r"):
@@ -21,7 +37,7 @@ def file_open(filename, mode="r"):
 def shell_call(call):
     """
     Run a program via system call and return stdout + stderr.
-    @param call programm and command line parameter list, e.g ["ls", "/"]
+    @param call programm and command line parameter list, e.g "ls /"
     @return stdout and stderr of programm call
     """
     try:
@@ -32,12 +48,14 @@ def shell_call(call):
 
 
 def assert_file(filename, error_msg):
+    """ checks if file exists otherwise throw error_msg and raise Exception"""
     if not os.path.isfile(filename):
         logging.error(error_msg)
         raise Exception()
 
 
 def parse_video(video_file):
+    """ parse a hevc video file and extract qp values and other stats """
     ffprobe = os.path.normpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "ffmpeg-4.1", "ffprobe"))
     assert_file(ffprobe, "local patched ffprobe could not be found, please compile everything first using prepare.sh")
     cmd = f""" {ffprobe} -v error -show_format -select_streams v:0 -show_frames -show_entries stream=bit_rate,width,height,avg_frame_rate,codec_name -show_entries frame=key_frame,pkt_size,pict_type -of json "{video_file}" """
@@ -108,6 +126,7 @@ def parse_video(video_file):
         "avg_frame_rate": avg_frame_rate,
         "codec_name": codec_name
     }
+
 
 def main(_):
     # argument parsing
